@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demir İletişim | Vodafone Ana Bayi</title>
+<style>
+  /* Genel stiller */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    color: #222;
+  }
+  header {
+    background-color: #e60000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .tab-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #b80000;
+  }
+  .tab-menu button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .tab-menu button:hover,
+  .tab-menu button.active {
+    background-color: #990000;
+  }
+  .tab-content {
+    display: none;
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    line-height: 1.6;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #b80000;
+  }
+  footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  footer a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .tab-menu button {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .section-title {
+      font-size: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>Demir İletişim | Vodafone Ana Bayi</header>
+<div class="tab-menu" role="tablist" aria-label="Sayfa Menüleri">
+  <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab1" id="tab1-btn">Ayın Fırsatları</button>
+  <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab2" id="tab2-btn">Telefonlar</button>
+</div>
+<div id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tab1-btn">
+  <div class="section-title">Ayın Fırsatları</div>
+    <p>Bu ayın fırsatları</p>
+    <p>3GB 1.000DK 250SMS = 118TL</p>
+    <p>10GB 1.000DK 250SMS = 158TL</p>
+</div>
+<div id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab2-btn">
+  <div class="section-title">Telefonlar</div>
+    <p>Redmi, iPhone, Samsung modelleri stokta.</p>
+</div>
+<footer>
+  <div><strong>Demir İletişim - Vodafone Ana Bayi</strong></div>
+  <div>Adıyaman Kahta Fırat Mahallesi</div>
+</footer>
+<script>
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const id = btn.getAttribute('aria-controls');
+      document.getElementById(id).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
